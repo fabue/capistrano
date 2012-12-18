@@ -169,7 +169,7 @@ module Capistrano
         # An expensive export. Performs a checkout as above, then
         # removes the repo.
         def export(revision, destination)
-          checkout(revision, destination) << " && rm -Rf #{destination}/.git"
+          checkout(revision, destination) << " && du -hs #{destination} && rm -Rf #{destination}/.git"
         end
 
         # Merges the changes to 'head' since the last fetch, for remote_cache
